@@ -16,6 +16,6 @@ body{
 }
 
 #nprogress .spinner-icon {
-  border-top-color: #00000085;
-  border-left-color: #00000085;
+  border-top-color: #00000000;
+  border-left-color: #00000000;
 }
