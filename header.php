@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/youranreus/G/CSS/OwO.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/themes/prism.css" rel="stylesheet" />
 	<?php if ($this->options->enablenprogress == 1): ?>
-		<link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css" rel="stylesheet" />
+		<link rel='stylesheet' href="https://cdn.jsdelivr.net/gh/poormonitor/G@master/CSS/nprogress.css" rel="stylesheet" />
 	<?php endif; ?>
 	<link href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/toastr/build/toastr.min.css" rel="stylesheet">
