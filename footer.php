@@ -36,7 +36,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-lazyload/jquery.lazyload.min.js"></script>
- 	<script src="https://cdn.jsdelivr.net/gh/youranreus@master/G/JS/X.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/gh/youranreus/G@master/JS/X.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/prism.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/toastr/build/toastr.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
