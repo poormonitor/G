@@ -22,10 +22,10 @@
 		<div id="footer-content-right">
 			<p>
 				<?php if ($this->options->enableUpyun): ?>
-       		<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://i.loli.net/2019/02/11/5c6187c809c8c.png"/></a>
+       		<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="<?php $this->options->themeUrl('IMG/upyun.png'); ?>"/></a>
       	<?php endif; ?>
 				<?php if ($this->options->enableAliLogo): ?>
-	       <img src="https://i.loli.net/2019/02/11/5c6187e663b3a.png"/></p>
+	       <img src="<?php $this->options->themeUrl('IMG/aliyun.svg'); ?>"/></p>
 	      <?php endif; ?>
 
 		</div>
@@ -39,6 +39,7 @@
  	<script src="https://cdn.jsdelivr.net/gh/youranreus/G@master/JS/X.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.17.1/prism.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/toastr/build/toastr.min.js"></script>
+	<script src="<?php $this->options->themeUrl('JS/message.min.js'); ?>"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js"></script>
 	<?php if ($this->options->enablenprogress == 1): ?>
@@ -88,6 +89,7 @@
 	PreFancybox();
 	imageinfo();
 	toc();
+	makeGallery();
 	collapse_toggle();
 	jQuery(document).ready(function ($) {
 			$("img.lazyload").lazyload({

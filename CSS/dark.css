@@ -30,7 +30,6 @@ html {
   background: #2c2a2a;
 }
 #page-content-title {
-    font-size: 2.3rem;
     font-weight: 400;
     text-align: center;
     color: #fff!important;
@@ -38,13 +37,12 @@ html {
 #nav-2 a{
   color: hsla(0,0%,100%,.6)!important;
 }
-#footer-content-left p {
+#footer-content-left p,#footer-content-left p a{
     line-height: 1.7;
-    font-size: 1.2rem;
-    color: hsla(0,0%,100%,.6);
+    color: hsla(0,0%,100%,.6)!important;
 }
 #page-content-article,#post-content-article p,#post-content-article h1, #post-content-article h2, #post-content-article h3, #post-content-article h4 {
-  color:#f0f0f0;
+  color:#909090;
 }
 #post-content-article h1, #post-content-article h2, #post-content-article h3, #post-content-article h4 {
   border:none;
@@ -149,6 +147,9 @@ html {
 }
 .post-content-notice{
   background: RGBA(121,145,209,0.1);
+}
+.post-content-content {
+    color: #909090;
 }
 #post-content-excerpt {
     background: #403E3E;

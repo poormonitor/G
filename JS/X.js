@@ -19,11 +19,11 @@ function switchNightMode(){
         document.querySelector('link[title="dark"]').disabled = true;
         document.querySelector('link[title="dark"]').disabled = false;
         document.cookie = "night=1;path=/"
-        toastr.info('夜间模式开启');
+        Qmsg.info("夜间模式开启",QMSG_GLOBALS.DEFAULTS);
     }else{
         document.querySelector('link[title="dark"]').disabled = true;
         document.cookie = "night=0;path=/"
-        toastr.info('夜间模式关闭');
+        Qmsg.info("夜间模式关闭",QMSG_GLOBALS.DEFAULTS);
     }
 }
 
@@ -34,23 +34,39 @@ function switchNightMode(){
         document.querySelector('link[title="dark"]').disabled = true;
         document.querySelector('link[title="dark"]').disabled = false;
         document.cookie = "night=1;path=/"
-        toastr.info('夜间模式开启');
+        Qmsg.info("夜间模式开启",QMSG_GLOBALS.DEFAULTS);
         }else{
         document.cookie = "night=0;path=/"
-        // toastr.info('夜间模式关闭');
         }
     }else{
         var night = document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") || '0';
         if(night == '0'){
         document.querySelector('link[title="dark"]').disabled = true;
-        // toastr.info('夜间模式关闭');
         }else if(night == '1'){
         document.querySelector('link[title="dark"]').disabled = true;
         document.querySelector('link[title="dark"]').disabled = false;
-        toastr.info('夜间模式开启');
+        Qmsg.info("夜间模式开启",QMSG_GLOBALS.DEFAULTS);
         }
     }
 })();
+
+//相册排版by 熊猫小A
+function makeGallery(){
+  var base = 50;
+  $.each($('.photos'), function(i, photoSet){
+    $.each($(photoSet).children(), function(j, item){
+      var img = new Image();
+      img.src = $(item).find('img').attr('src');
+      img.onload = function(){
+        var w = parseFloat(img.width);
+        var h = parseFloat(img.height);
+        $(item).css('width', w*base/h +'px');
+        $(item).css('flex-grow', w*base/h);
+        $(item).find('div').css('padding-top', h/w*100+'%');
+      };
+    });
+  });
+}
 
 
 
@@ -99,6 +115,7 @@ function pjax_complete(){
 	PreFancybox();
 	imageinfo();
 	toc();
+  makeGallery();
 	collapse_toggle();
 	jQuery(document).ready(function ($) {
 			$("img.lazyload").lazyload({
@@ -115,13 +132,9 @@ function pjax_complete(){
 function PreFancybox(){
 	$("#post img").each(function(){
 				$(this).wrap(function(){
-					if($(this).is(".bq"))
+					if($(this).is(".bq") || $(this).is("#feedme-content img"))
 					{
 						 return '';
-					}
-					if($(this).is("#feedme-content img"))
-					{
-						return '';
 					}
 				return '<a data-fancybox="gallery" no-pjax data-type="image" href="' + $(this).attr("src") + '" class="light-link"></a>';
 		 });
@@ -131,12 +144,15 @@ function PreFancybox(){
 function imageinfo(){
 	$("#post img").each(function(){
 				$(this).wrap(function(){
-					if($(this).is(".bq"))
+					if($(this).is(".bq") || $(this).is("#feedme-content img"))
 					{
 						 return '';
 					}
-					if($(this).is("#feedme-content img"))
+					if($(this).is("div.photos figure div img"))
 					{
+            $(this).addClass("lazyload");
+  					$(this).attr('data-original',$(this).attr("src"));
+  					$(this).attr('src','https://cdn.jsdelivr.net/gh/youranreus/R@v1.1.5/G/IMG/loading2.gif');
 						return '';
 					}
 					$(this).addClass("lazyload");
@@ -362,6 +378,7 @@ function ajaxc(){
 				if (ok) {
 						$("#textarea").val('');
 						replyTo = '';
+            Qmsg.success("发送成功",QMSG_GLOBALS.DEFAULTS);
 				}
 				bindButton();
 		}
@@ -378,9 +395,8 @@ function ajaxc(){
 						},
 						success: function (data) {
 								if (!$('#comments', data).length) {
-										var msg = $('title').eq(0).text().trim().toLowerCase() === 'error' ? $('.container', data).eq(0).text() : '评论提交失败！';
-
-										toastr.warning(msg, 'QAQ');
+                    var msg = $(data)[7].innerText.replace(/[\r\n]/g,"").replace(/[ ]/g,"");
+                    Qmsg.warning(msg,QMSG_GLOBALS.DEFAULTS);
 										$("#comment-loading").fadeOut();
 										$(".submit").fadeIn();
 										afterSendComment(false);
@@ -427,10 +443,9 @@ function ajaxc(){
 							$(".submit").fadeIn();
 						},
 						complete:function(){
-							toastr.success('送信完了', '发送成功');
+
 							$("#comment-loading").fadeOut();
 							$(".submit").fadeIn();
-							//$.pjax.reload('#pjax-container', {container: '#pjax-container',fragment: '#pjax-container',timeout: 8000});
 						}
 				});
 				return false;
