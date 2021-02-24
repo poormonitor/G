@@ -9,7 +9,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.1.1/dist/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/poormonitor/G@compressed/CSS/G.css'" rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/poormonitor/G@compressedCSS/message.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/poormonitor/G@compressed、CSS/message.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/poormonitor/G@compressed/CSS/shortcode.G.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/poormonitor/G@compressed/CSS/OwO.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/poormonitor/G@compressed/CSS/prism.css" rel="stylesheet" />
